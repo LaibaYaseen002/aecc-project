@@ -124,14 +124,8 @@ const menu: MenuItem[] = [
         href: "/about/our-partners",
         children: [
           { label: "Australia", href: "/about/our-partners/australia" },
-          {
-            label: "Canada",
-            href: "/about/our-partners/canada",
-          },
-          {
-            label: "New Zealand",
-            href: "/about/our-partners/new-zealand",
-          },
+          { label: "Canada", href: "/about/our-partners/canada" },
+          { label: "New Zealand", href: "/about/our-partners/new-zealand" },
           {
             label: "United Kingdom",
             href: "/about/our-partners/united-kingdom",
@@ -140,10 +134,7 @@ const menu: MenuItem[] = [
             label: "United States of America",
             href: "/about/our-partners/united-states-of-america",
           },
-          {
-            label: "Ireland",
-            href: "/about/our-partners/ireland",
-          },
+          { label: "Ireland", href: "/about/our-partners/ireland" },
           {
             label: "Other Study Destinations",
             href: "/about/our-partners/other-study-destinations",
@@ -179,59 +170,60 @@ const menu: MenuItem[] = [
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 1024; // 1024px breakpoint for mobile
+      const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
       if (!mobile) {
-        setMobileOpen(false); // close menu on desktop
+        setMobileOpen(false);
       }
     };
 
-    handleResize(); // on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <header className="bg-white fixed top-0 left-0 w-full z-[99] px-[40px] lg:px-[55px] h-[90px] border-b shadow-md">
+    <header className="bg-white fixed top-0 left-0 w-full z-[99] px-[40px] lg:px-[55px] h-[80px] border-b border-b-[#E8D4FF] shadow-md">
       <div className="max-w-[1320px] mx-auto flex items-center justify-between h-full">
         <Logo />
 
-        {/* Mobile Toggle */}
         {isMobile && (
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 text-2xl text-[#1A1246]"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 text-2xl text-[#1A1246]"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             <FaBars />
           </button>
         )}
 
-        {/* Desktop Menu */}
         {!isMobile && (
-          <nav className=" flex items-center justify-end h-full gap-8 text-[#1A1246] font-semibold text-sm">
+          <nav className="flex items-center gap-0.5 text-[#313033] text-[15px] font-semibold tracking-wide">
             {menu.map((item, idx) => (
               <div className="relative group" key={idx}>
                 {item.children ? (
                   <>
-                    <div className="inline-flex w-full justify-center gap-x-1.5 rounded-md items-center gap-8 hover:text-[#6A4EFF] p-8">
-                      {item.label} <FaAngleDown className="ml-1 text-xs" />
+                    <div className="inline-flex items-center gap-1 px-1 py-2 hover:text-[#6A4EFF] relative group">
+                      {item.label}
+                      <FaAngleDown className="text-sm mt-1" />
+                      <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#6A4EFF] transition-all group-hover:w-full"></span>
                     </div>
-                    <div className="absolute p-8 left-0 top-full mt-2 bg-white border shadow-lg hidden group-hover:flex flex-col min-w-[220px] z-50">
+                    <div className="absolute left-0 top-full mt-2 bg-white shadow-lg hidden group-hover:flex flex-col min-w-[320px] z-50">
                       {item.children.map((sub, subIdx) => (
                         <div
                           key={subIdx}
-                          className="group relative inline block w-full justify-center"
+                          className="group relative inline  w-full justify-center"
                         >
                           {sub.children ? (
                             <>
-                              <div className="flex justify-between items-center p-8 hover:bg-gray-100 bg-gray-50">
+                              <div className="flex justify-between items-center p-2 hover:bg-gray-100 bg-gray-50 cursor-pointer">
                                 {sub.label}
-                                <FaAngleRight className="text-xs" />
+                                <FaAngleRight className="text-base" />
                               </div>
-                              <div className="absolute top-0 left-full hidden group-hover:flex flex-col bg-white border shadow-lg min-w-[200px] z-50">
+                              <div className="absolute top-0 left-full lg:left-full lg:right-auto hidden group-hover:flex flex-col bg-white  shadow-lg min-w-[200px] z-50">
                                 {sub.children.map((child, childIdx) => (
                                   <Link
                                     key={childIdx}
@@ -258,7 +250,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     href={item.href || "#"}
-                    className="hover:text-[#6A4EFF]"
+                    className={`relative hover:text-[#6A4EFF] after:content-[''] after:block after:h-[2px] after:bg-[#6A4EFF] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
                   >
                     {item.label}
                   </Link>
@@ -269,49 +261,53 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Mobile Menu */}
       {isMobile && mobileOpen && (
-        <div className="xl:hidden px-4 py-4 bg-white border-t text-[#1A1246] space-y-2">
+        <>
+          {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-black/40 z-40"
             onClick={() => setMobileOpen(false)}
           ></div>
 
-          {/* Slide-in Sidebar */}
-          <div className="fixed top-0 left-0 w-[270px] h-full bg-white shadow-lg z-50 p-6 overflow-y-auto flex flex-col justify-between">
-            {/* Top: Logo + Close */}
-            <div className="flex justify-between items-center mb-6">
+          {/* Sidebar */}
+          <div className="fixed top-0 left-0 w-[280px] h-full bg-white z-50 flex flex-col">
+            {/* Header with logo and close */}
+            <div className="flex items-center justify-between px-4 py-4 border-b">
               <Logo />
-              <button onClick={() => setMobileOpen(false)}>
-                <span className="text-xl font-bold text-[#1A1246]">
-                  &times;
-                </span>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="text-xl font-bold text-[#1A1246]"
+              >
+                ×
               </button>
             </div>
 
             {/* Menu Items */}
-            <nav className="space-y-4 text-[#1A1246] text-sm">
+            <nav className="flex-1 px-4 py-6 space-y-3 text-[#313033] text-[15px] font-medium">
               {menu.map((item, idx) => (
                 <div key={idx}>
                   {item.children ? (
-                    <details>
-                      <summary className="font-semibold cursor-pointer hover:text-[#6A4EFF]">
+                    <details className="group">
+                      <summary className="flex items-center justify-between cursor-pointer px-1 py-2 hover:text-[#6A4EFF]">
                         {item.label}
+                        <span className="text-sm">&#8250;</span>{" "}
+                        {/* Unicode right arrow › */}
                       </summary>
                       <div className="pl-4 mt-1 space-y-1">
                         {item.children.map((child, cIdx) => (
                           <div key={cIdx}>
                             {child.children ? (
-                              <details>
-                                <summary className="font-medium cursor-pointer hover:text-[#6A4EFF]">
+                              <details className="group">
+                                <summary className="flex items-center justify-between cursor-pointer py-1 hover:text-[#6A4EFF]">
                                   {child.label}
+                                  <span className="text-xs">&#8250;</span>
                                 </summary>
                                 <div className="pl-4 mt-1 space-y-1">
                                   {child.children.map((subChild, scIdx) => (
                                     <Link
                                       key={scIdx}
                                       href={subChild.href || "#"}
-                                      className="block hover:underline"
+                                      className="block text-sm hover:text-[#6A4EFF]"
                                     >
                                       {subChild.label}
                                     </Link>
@@ -321,7 +317,7 @@ const Navbar = () => {
                             ) : (
                               <Link
                                 href={child.href || "#"}
-                                className="block hover:underline"
+                                className="block text-sm hover:text-[#6A4EFF]"
                               >
                                 {child.label}
                               </Link>
@@ -333,7 +329,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={item.href || "#"}
-                      className="block font-semibold hover:text-[#6A4EFF]"
+                      className="block px-1 py-2 hover:text-[#6A4EFF]"
                     >
                       {item.label}
                     </Link>
@@ -342,31 +338,53 @@ const Navbar = () => {
               ))}
             </nav>
 
-            {/* Bottom: Contact Us */}
-            <div className="pt-6 border-t mt-6 text-center">
+            {/* Footer Contact Us link with icon */}
+            <div className="items-center px-4 pb-4 mt-auto">
               <Link
                 href="/contact-us"
-                className="text-xs text-[#1A1246] font-semibold flex justify-center items-center gap-1"
+                className="flex items-center gap-2 text-[#1A1246] hover:text-[#6A4EFF] font-semibold text-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-4 h-4"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="#1A1246"
                   strokeWidth={2}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm-4-6v.01M12 18v.01"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
                 Contact Us
               </Link>
             </div>
+            <div className="px-4 pb-4">
+              <Link
+                href="/book-appointment"
+                className="flex items-center gap-2 text-[#1A1246] hover:text-[#6A4EFF] font-semibold text-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#1A1246"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                Book an Appointment
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
