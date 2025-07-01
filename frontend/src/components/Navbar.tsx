@@ -18,7 +18,7 @@ const menu: MenuItem[] = [
     children: [
       {
         label: "International Education Counselling",
-        href: "/student-services/education-counselling",
+        href: "https://www.aeccglobal.com/student-services/education-counselling",
       },
       {
         label: "Health Insurance",
@@ -201,17 +201,17 @@ const Navbar = () => {
         )}
 
         {!isMobile && (
-          <nav className="flex items-center gap-0.5 text-[#313033] text-[15px] font-semibold tracking-wide">
+          <nav className="flex items-center gap-0.5 text-[#313033] text-bold font-sans tracking-wide text-[15px]">
             {menu.map((item, idx) => (
               <div className="relative group" key={idx}>
                 {item.children ? (
                   <>
-                    <div className="inline-flex items-center gap-1 px-1 py-2 hover:text-[#6A4EFF] relative group">
+                    <div className="inline-flex items-center gap-1 px-1 py-4 hover:text-[#6A4EFF] relative group">
                       {item.label}
                       <FaAngleDown className="text-sm mt-1" />
                       <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#6A4EFF] transition-all group-hover:w-full"></span>
                     </div>
-                    <div className="absolute left-0 top-full mt-2 bg-white shadow-lg hidden group-hover:flex flex-col min-w-[320px] z-50">
+                    <div className="absolute left-0 top-full mt-2 bg-white shadow-lg flex-col min-w-[320px] z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300">
                       {item.children.map((sub, subIdx) => (
                         <div
                           key={subIdx}
@@ -223,7 +223,7 @@ const Navbar = () => {
                                 {sub.label}
                                 <FaAngleRight className="text-base" />
                               </div>
-                              <div className="absolute top-0 left-full lg:left-full lg:right-auto hidden group-hover:flex flex-col bg-white  shadow-lg min-w-[200px] z-50">
+                              <div className="absolute top-0 right-full lg:right-full lg:left-auto hidden group-hover:flex flex-col bg-gray-300  shadow-lg min-w-[200px] z-50">
                                 {sub.children.map((child, childIdx) => (
                                   <Link
                                     key={childIdx}

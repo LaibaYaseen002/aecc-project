@@ -2,21 +2,21 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="bg-white pt-[100px] pb-12 px-4 text-center">
+    <section className="bg-white pt-[80px] pb-12 px-4 md:px-8 text-center">
       {/* Top Tagline */}
-      <h1 className="font-bold text-4xl text-bold text-gray-500 mb-10 tracking-wide font-sans">
+      <h1 className="text-2xl md:text-4xl font-bold text-gray-600 mb-6 tracking-wide font-sans">
         We don’t just guide. We get you there.
       </h1>
 
       {/* Main Heading */}
-      <h3 className="text-xl md:text-2xl font-semibold text-[#151516] leading-snug mb-6 max-w-4xl mx-auto">
+      <h3 className="text-base sm:text-lg md:text-2xl font-semibold text-[#151516] leading-snug mb-6 max-w-3xl mx-auto">
         Courses, scholarships, study visa and 2025 deadlines — all in one place
       </h3>
 
       {/* CTA Button */}
       <a
         href="https://www.aeccglobal.com/apply-for-upcoming-intakes?utm_content=Homepage"
-        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#fcfcfc] to-[#fcfcfc] text-black rounded-full font-medium text-sm md:text-base  border-1 border-blue-200 shadow-md hover:opacity-90 transition duration-200"
+        className="inline-flex items-center gap-2 px-5 py-3 bg-white text-black rounded-full font-medium text-sm md:text-base border border-blue-200 shadow-md hover:opacity-90 transition duration-200"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -38,7 +38,7 @@ export default function HeroSection() {
       </a>
 
       {/* Hero Image */}
-      <div className="mt-10 rounded-lg sm:max-w-5xl sm:mx-auto">
+      <div className="mt-10 max-w-6xl mx-auto">
         {/* Desktop Image */}
         <div className="hidden sm:block">
           <Image

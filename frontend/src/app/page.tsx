@@ -3,11 +3,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
+import WhyAecc from "@/components/WhyAecc";
+import ConsultationForm from "@/components/ConsultationForm";
+import Portals from "@/components/Portals";
 export default function Home() {
   return (
     <div>
       <HeroSection />
       <ServicesSection />
+      <WhyAecc />
+      <ConsultationForm />
+      <Portals />
     </div>
   );
 }
