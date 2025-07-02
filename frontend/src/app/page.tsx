@@ -6,6 +6,9 @@ import ServicesSection from "@/components/ServicesSection";
 import WhyAecc from "@/components/WhyAecc";
 import ConsultationForm from "@/components/ConsultationForm";
 import Portals from "@/components/Portals";
+import TestimonialSection from "@/components/TestimonialSection";
+import ResourcesSection from "@/components/ResourcesSection";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div>
@@ -14,6 +17,9 @@ export default function Home() {
       <WhyAecc />
       <ConsultationForm />
       <Portals />
+      <TestimonialSection />
+      <ResourcesSection />
+      <Footer />
     </div>
   );
 }

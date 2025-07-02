@@ -6,7 +6,7 @@ const Logo = () => {
     <div className="flex items-center">
       <Link href="/" className="block">
         <Image
-          src="/images/new-logo.webp"
+          src="/images/kompass-logo.jpg"
           alt="aecc logo"
           width={130}
           height={40}
