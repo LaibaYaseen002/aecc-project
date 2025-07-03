@@ -31,15 +31,15 @@ export default function ConsultationForm() {
             <input
               type="text"
               placeholder="Enter your full name"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 outline-gray-300 focus:ring-2 focus:ring-[#9B51E0]"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-500 outline-gray-300 focus:ring-2 focus:ring-[#9B51E0]"
             />
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]"
+              className="w-full border  border-gray-300 rounded-lg px-4 py-2  text-gray-500 outline-none focus:ring-2 focus:ring-[#9B51E0]"
             />
             <div className="flex flex-col sm:flex-row gap-4">
-              <select className="w-full sm:w-1/2 border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
+              <select className="w-full sm:w-1/2 border  border-gray-300 text-gray-400 rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
                 <option>Country Code</option>
                 <option>+92</option>
                 <option>+91</option>
@@ -48,30 +48,30 @@ export default function ConsultationForm() {
               <input
                 type="text"
                 placeholder="Mobile Number"
-                className="w-full sm:w-1/2 border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]"
+                className="w-full sm:w-1/2 border  border-gray-300 text-gray-500 rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]"
               />
             </div>
-            <select className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
+            <select className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-400 outline-none focus:ring-2 focus:ring-[#9B51E0]">
               <option>Choose your nearest AECC office</option>
               <option>Lahore</option>
               <option>Karachi</option>
               <option>Islamabad</option>
             </select>
-            <select className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
+            <select className="w-full border  border-gray-300 rounded-lg px-4 py-2 text-gray-400 outline-none focus:ring-2 focus:ring-[#9B51E0]">
               <option>Choose your preferred study destination</option>
               <option>Australia</option>
               <option>UK</option>
               <option>Canada</option>
               <option>USA</option>
             </select>
-            <select className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
+            <select className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-400 outline-none focus:ring-2 focus:ring-[#9B51E0]">
               <option>Choose your preferred study year</option>
               <option>2025</option>
               <option>2026</option>
               <option>2027</option>
               <option>2028</option>
             </select>
-            <select className="w-full border-gray-200 rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-[#9B51E0]">
+            <select className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-400 outline-none focus:ring-2 focus:ring-[#9B51E0]">
               <option>Choose your preferred study intake</option>
               <option>Q1(Jan-Mar)</option>
               <option>Q2(Apr-Jun)</option>
@@ -93,7 +93,7 @@ export default function ConsultationForm() {
               type="submit"
               className="w-full bg-[#1E0657] text-white font-semibold py-2 rounded-lg hover:bg-[#28097d] transition"
             >
-              Get Started For Free!
+              Request a Consultation!
             </button>
           </form>
         </div>

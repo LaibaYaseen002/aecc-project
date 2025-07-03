@@ -2,24 +2,18 @@ import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
 import HeroSection from "@/components/HeroSection";
+import Intro from "@/components/Intro";
 import ServicesSection from "@/components/ServicesSection";
-import WhyAecc from "@/components/WhyAecc";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import ConsultationForm from "@/components/ConsultationForm";
-import Portals from "@/components/Portals";
-import TestimonialSection from "@/components/TestimonialSection";
-import ResourcesSection from "@/components/ResourcesSection";
-import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div>
       <HeroSection />
+      <Intro />
       <ServicesSection />
-      <WhyAecc />
+      <WhyChooseUs />
       <ConsultationForm />
-      <Portals />
-      <TestimonialSection />
-      <ResourcesSection />
-      <Footer />
     </div>
   );
 }

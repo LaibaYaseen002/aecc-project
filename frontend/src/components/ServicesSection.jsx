@@ -2,44 +2,44 @@ import ServiceCard from "./ServiceCard";
 
 const services = [
   {
-    title: "Education Counselling",
+    title: "Free Counseling & Assessment!",
     description:
-      "Our Education Counsellors will learn about your career aspirations, lifestyle and study goals so that we can offer tailored advice.",
+      "Providing professional counseling and comprehensive assessments for academic and career guidance.",
     imageUrl: "/images/edu-coun-global.webp",
     button: true,
   },
   {
-    title: "Application Process",
+    title: "Admission Processing!",
     description:
-      "Our counsellor will assist you in shortlisting and applying to the institutions and courses in which you are eligible to apply.",
+      "We assist you in the seamless processing of admissions, ensuring a smooth transition into your desired academic program.",
     imageUrl: "/images/application-process-global.webp",
     button: true,
   },
   {
-    title: "Scholarship Guidance",
+    title: "Document Preparation!",
     description:
-      "There are a wide variety of scholarships available across many of our partner institutions. Our education consultants can help find the right one for you.",
+      "Our team helps you prepare all necessary documents, making the application process hassle-free and efficient.",
     imageUrl: "/images/scholarship-global.webp",
     button: true,
   },
   {
-    title: "Visa Application",
+    title: "Student Visa Processing!",
     description:
-      "We’ve got years of experience handling every type of visa. Our visa experts will guide and support you throughout the entire visa application process.",
+      "We provide comprehensive assistance with the processing of student visas, ensuring you have the necessary documentation for a successful application.",
     imageUrl: "/images/visa-application.webp",
     button: true,
   },
   {
-    title: "Student Health Insurance",
+    title: "Tourist / Business Visa Processing!",
     description:
-      "From finding the best health cover policies to ensuring the insurance benefits for you, we have got you covered.",
+      "Whether you're planning a leisure trip or a business visit, we facilitate the processing of tourist and business visas to make your travel plans stress-free.",
     imageUrl: "/images/health-global.webp",
     button: true,
   },
   {
-    title: "Student Accommodation",
+    title: "English Proficiency Test Support!",
     description:
-      "Explore one of the world’s largest student accommodation portals to plan your study abroad accommodation cost-effectively.",
+      "We offer test preparation services for standardized exams like IELTS, TOEFL, GRE, or GMAT, both online and offline.",
     imageUrl: "/images/accommodation-global.webp",
     button: true,
   },
@@ -48,10 +48,10 @@ const services = [
 const ServicesSection = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-12 bg-white">
-      <h2 className="text-3xl sm:text-4xl font-bold text-[#1E0657] mb-12 text-center">
-        With you at every step – from one point to another
+      <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 text-center">
+        What We Offer
       </h2>
-
+      <hr className="border-t-2 border-gray-300 w-40 mx-auto" />
       <div className="px-2 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 place-items-center">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
