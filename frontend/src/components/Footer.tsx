@@ -1,173 +1,104 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
+import { FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer
-      className="bg-[#150048]
-    text-gray-400
-    px-4
-    md:px-10
-    lg:px-20
-    xl:px-28
-    py-18
-    text-sm
-  "
-    >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-15">
-        {/* ===== Left Column ===== */}
-        <div className="max-w-xs">
-          {/* Logo */}
-          <div className="mb-6 ">
-            <img
-              src="/images/new-logo_white.png"
-              alt="AECC Logo"
-              width={500}
-              height={60}
-              className="w-[250px] md:w-[380px] lg:w-[500px] h-auto max-w-full"
-            />
-          </div>
-
-          {/* Let’s get social */}
-          <p className="text-[20px] font-semibold mb-3 text-white">
-            Let's get social.
-          </p>
-
-          <div className="flex space-x-3 mb-6 text-xl text-gray-400">
-            <i
-              className="fa fa-facebook-official cursor-pointer hover:text-gray-300"
-              aria-hidden="true"
-            ></i>
-            <i
-              className="fa fa-linkedin-square cursor-pointer hover:text-gray-300"
-              aria-hidden="true"
-            ></i>
-            <i
-              className="fa fa-twitter cursor-pointer hover:text-gray-300"
-              aria-hidden="true"
-            ></i>
-            <i
-              className="fab fa-youtube-square cursor-pointer hover:text-gray-300"
-              aria-hidden="true"
-              title="youtube"
-            ></i>
-          </div>
-
-          {/* About Us under social icons */}
-          <div className="mt-6">
-            <p className="text-[20px] font-semibold mb-3 text-white">
-              About Us
-            </p>
-            <ul className="space-y-2 text-sm">
-              <li className="hover:text-white cursor-pointer">Who We Are</li>
-              <li className="hover:text-white cursor-pointer">Our Timeline</li>
-              <li className="hover:text-white cursor-pointer">
-                Our Leadership Team
-              </li>
-              <li className="hover:text-white cursor-pointer">
-                Partner With Us
-              </li>
-              <li className="hover:text-white cursor-pointer">Careers</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* ===== Columns 2–5 ===== */}
-        <FooterLinks
-          title="Our Services"
-          links={[
-            "Education Counselling",
-            "Application Process",
-            "Visa Documentation Guidance",
-            "Scholarship Guidance",
-            "Overseas Student Health Cover",
-            "Personality Assessment Test",
-          ]}
-        />
-
-        <FooterLinks
-          title="English Coaching"
-          links={["IELTS", "TOEFL", "PTE", "SAT", "OET"]}
-        />
-
-        <FooterLinks
-          title="Scholarships"
-          links={[
-            "Scholarships in Australia",
-            "Scholarships in New Zealand",
-            "Scholarships in Canada",
-            "Scholarships in USA",
-            "Scholarships in United Kingdom",
-          ]}
-        />
-
-        <FooterLinks
-          title="Study Abroad"
-          links={[
-            "Study in Australia",
-            "Study in Canada",
-            "Study in USA",
-            "Study in UK",
-            "Study in New Zealand",
-            "Study in Ireland FAQ's",
-            "Study in Canada FAQ's",
-            "Study in UK FAQ's",
-            "Study in USA FAQ's",
-          ]}
-        />
+    <footer className="bg-[#0e2258] text-white text-base">
+      {/* Newsletter Section */}
+      <div className="text-center py-10 px-4 ">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated!!!</h2>
+        <form className="max-w-xl mx-auto flex flex-col sm:flex-row items-center">
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full p-4.5 rounded-l border bg-white sm:rounded-none sm:rounded-l-md  outline-none text-gray-700"
+          />
+          <button
+            type="submit"
+            className="bg-gray-400 text-white px-6 py-1.5 rounded-r sm:rounded-none sm:rounded-r-md mt-4 sm:mt-0"
+          >
+            Sign Up
+          </button>
+        </form>
       </div>
 
-      {/* Bottom Line */}
-      <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-xs space-y-2">
+      {/* Links & Contact Section */}
+      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 border-t border-slate-700">
+        {/* Quick Links */}
         <div>
-          Australia | Bangladesh | India | Indonesia | Malaysia | Nepal |
-          Nigeria | Philippines | Singapore | Sri Lanka | Thailand | Vietnam
+          <h4 className="text-lg font-bold mb-4 text-white">Quick Links</h4>
+          <ul className="space-y-2">
+            {["Home", "About Us", "Our Services", "Contact Us"].map((link) => (
+              <li
+                key={link}
+                className="text-gray-500 text-base hover:underline cursor-pointer"
+              >
+                {link}
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Popular Links */}
         <div>
-          &copy; 2025 aecc.{" "}
-          <Link href="#" className="hover:text-white">
-            Useful Links
-          </Link>{" "}
-          |{" "}
-          <Link href="#" className="hover:text-white">
-            Glossary
-          </Link>{" "}
-          |{" "}
-          <Link href="#" className="hover:text-white">
-            Terms of Use
-          </Link>{" "}
-          |{" "}
-          <Link href="#" className="hover:text-white">
-            Privacy Policy
-          </Link>
+          <h4 className="text-lg font-bold mb-4 text-white">Popular Links</h4>
+          <ul className="space-y-2">
+            {["USA", "Canada", "Australia", "UK"].map((link) => (
+              <li
+                key={link}
+                className="text-gray-500 text-base hover:underline cursor-pointer"
+              >
+                {link}
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Contact Info */}
+        <div>
+          <h4 className="text-lg font-bold mb-4 text-white">Get In Touch</h4>
+          <div className="space-y-2 text-base">
+            <p className="flex items-start gap-2 text-gray-500">
+              <MdLocationOn className="text-[#20c997]" /> 56 Siddeshwari road
+              <br />
+              2nd floor, Dhaka 1217
+            </p>
+            <p className="flex items-center gap-2 text-gray-500">
+              <MdEmail className="text-[#20c997]" /> info@kompass.cc
+            </p>
+            <p className="flex items-center gap-2 text-gray-500">
+              <MdPhone className="text-[#20c997]" /> 01877424034, 01736720908
+            </p>
+          </div>
+        </div>
+
+        {/* Social Links */}
+        <div>
+          <h4 className="text-lg font-bold mb-4">Follow Us</h4>
+          <div className="flex gap-4 text-base">
+            {[FaWhatsapp, FaFacebookF, FaLinkedinIn].map((Icon, index) => (
+              <div
+                key={index}
+                className="text-gray-300 p-2 rounded-full cursor-pointer hover:text-white transition-colors"
+              >
+                <Icon size={30} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Copyright */}
+      <div className="border-t border-slate-700 text-center py-4 text-sm md:text-base">
+        ©{" "}
+        <span className="text-blue-300 cursor-pointer hover:underline">
+          Kompass 2025
+        </span>
+        . All Rights Reserved. Designed by{" "}
+        <span className="text-blue-300 cursor-pointer hover:underline">
+          Technocrats
+        </span>
       </div>
     </footer>
-  );
-}
-
-/* ============================
- * FooterLinks Component
- * ============================ */
-
-type FooterLinksProps = {
-  title: string;
-  links: string[];
-};
-
-function FooterLinks({ title, links }: FooterLinksProps) {
-  return (
-    <div>
-      <p className="text-[15px] font-semibold mb-3 text-white">{title}</p>
-      <ul className="space-y-2">
-        {links.map((link) => (
-          <li key={link} className="hover:text-white cursor-pointer">
-            {link}
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

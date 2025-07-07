@@ -12,11 +12,11 @@ const ServiceCard = ({ title, description, imageUrl, button }) => {
         />
       </div>
       {/* Card */}
-      <div className="bg-[#150048] rounded-3xl px-5 pt-10 pb-10 text-left shadow-lg relative w-full min-h-[280px] sm:min-h-[240px]">
-        <h3 className="text-white text-lg sm:text-xl font-bold mb-2">
+      <div className="bg-[#54F0D1] rounded-3xl px-5 pt-10 pb-10 text-left shadow-lg relative w-full min-h-[280px] sm:min-h-[240px]">
+        <h3 className="text-[#1E0657] text-lg sm:text-xl font-bold mb-2">
           {title}
         </h3>
-        <p className="text-white text-sm sm:text-base">{description}</p>
+        <p className="text- text-sm sm:text-base">{description}</p>
       </div>
 
       {/* Learn More Button - Touching card, placed outside */}

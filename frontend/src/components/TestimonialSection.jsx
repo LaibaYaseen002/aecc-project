@@ -4,15 +4,20 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    text: `I have been a client of AECC Global since 2010. From that time, they have been helping me for all visa and education related matters. I am very happy with their professional advice and friendly behaviour. So, I would like to recommend all to visit them for your migration pathway.`,
-    author: "BINOD PATHAK, NEPAL",
+    text: `The Best Agency In Bangladesh In My POV! They helped me 24/7 anytime i want & processed my file smoothly without any corruption! I strongly recommend this Agency who want to study In Abroad. The Man Tamzidul Islam Is So kind! Literally i don't have any word to explain about him! Thanks a lot brother You deserve lots of Dua
+`,
+    author: "Mehedi Hasan Munna",
   },
   {
-    text: `I was looking for someone to help me with my visa situation and luckily a friend recommended me to AECC and its one recommendation I can’t thank enough. AECC Global assisted me from getting a letter of offer for my education, acquiring a student insurance coverage for my stay, and finally arranging my visa.`,
-    author: "MERBEN GARCIA, PHILIPPINES",
+    text: `I feel delighted to share that I worked for the American Center, U.S. Embassy-Dhaka for over 20 years, and I strongly endorse this education consultancy Center. I extend my full back support for Mr. Tamzid. All glory be to Allah that Tamzid completed his graduation in the USA with an excellent GPA as well as lived in there for over 12 years. I firmly believe that he can provide the best academic career solution to the potential/interested students genuinely that would be remarkably accurate!`,
+    author: "Mahbuba Khanam",
   },
   {
-    text: `AECC Global Indonesia has definitely been helping a lot with my children's application process to study abroad. The counselor, Ms Yenny is very friendly and helpful in aiding my kids throughout all the necessary steps for their journey to study in Australia. I really recommended other people to get support from AECC Global Indonesia since it is more effective than doing everything on your own.`,
+    text: `Owner is very helpful to students and compassionate about their goal for higher education. It could be the best consultancy company for pursuing higher education in Bangladesh one day. Best value for money. good luck and go ahead.`,
+    author: "Md Arif",
+  },
+  {
+    text: `I recommend Kompass Education Consultancy, they are authentic and provide accurate information to students.`,
     author: "MRS NISA HADI",
   },
 ];
@@ -22,8 +27,8 @@ export default function TestimonialSection() {
 
   return (
     <section className="bg-[#59f3dc] py-16 pb-2 px-4 md:px-12 relative overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#1E0657] text-center mb-6">
-        Hear from those who got there!
+      <h2 className="text-5xl md:text-4xl font-bold text-[#1E0657] text-center mb-6">
+        What our clients say!!!
       </h2>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left - Text + Slider */}
@@ -36,7 +41,7 @@ export default function TestimonialSection() {
             className="mb-4"
           />
 
-          <p className="text-[#0f0f0f] text-8xl sm:text-lg leading-relaxed mb-4 transition-all duration-300 ease-in-out">
+          <p className="text-[#0f0f0f] text-sm sm:text-base md:text-lg leading-relaxed mb-4 transition-all duration-300 ease-in-out">
             {testimonials[current].text}-
           </p>
 

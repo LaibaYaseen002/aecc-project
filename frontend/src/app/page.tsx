@@ -6,6 +6,11 @@ import Intro from "@/components/Intro";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ConsultationForm from "@/components/ConsultationForm";
+import TeamSection from "@/components/TeamSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import LatestNews from "@/components/LatestNews";
+import Footer from "@/components/Footer";
+import FormModal from "@/components/FormModal";
 export default function Home() {
   return (
     <div>
@@ -14,6 +19,11 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseUs />
       <ConsultationForm />
+      <TeamSection />
+      <TestimonialSection />
+      <LatestNews />
+      <Footer />
+      <FormModal />
     </div>
   );
 }
