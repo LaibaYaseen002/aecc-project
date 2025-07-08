@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";
 import Logo from "./Logo";
+import SignInModal from "./SignInModal";
 
 type MenuItem = {
   title: string;
@@ -73,6 +74,7 @@ const menuItems: MenuItem[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const toggleDropdown = (title: string) => {
     if (openDropdown === title) {
@@ -83,7 +85,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow fixed top-0 left-0 w-full z-50">
+    <nav className="bg-white shadow fixed top-0 left-0 w-full z-50 text-[#17161a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Logo />
@@ -94,7 +96,7 @@ export default function Navbar() {
               <div key={item.title} className="relative group">
                 <Link
                   href={item.href}
-                  className="uppercase text-[13px] tracking-wider font-semibold text-gray-800 hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 py-5 inline-flex items-center"
+                  className="uppercase text-[14px] tracking-wider font-semibold  hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 py-5 inline-flex items-center"
                 >
                   {item.title}
                   {item.children && (
@@ -124,7 +126,7 @@ export default function Navbar() {
                           className="
     relative inline-block
     px-5 py-3
-    text-sm text-gray-700
+    text-sm
     hover:text-blue-700
     transition-colors duration-200
     before:absolute before:bottom-0 before:w-18
@@ -143,19 +145,19 @@ export default function Navbar() {
             ))}
 
             {/* LOGIN BUTTON */}
-            <Link
-              href="/login"
+            <button
+              onClick={() => setShowLoginModal(true)}
               className="uppercase text-[13px] tracking-wider font-semibold border border-blue-700 text-blue-700 px-4 py-2 rounded hover:bg-blue-700 hover:text-white transition"
             >
               Login
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-gray-700 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-700 hover:text-blue-700 focus:outline-none "
             >
               {!mobileOpen ? (
                 <svg
@@ -198,7 +200,7 @@ export default function Navbar() {
               <div className="flex justify-between items-center px-4 py-3">
                 <Link
                   href={item.href}
-                  className="text-gray-700 font-medium hover:text-blue-700"
+                  className="text-[#17161a] font-semibold hover:text-blue-700"
                 >
                   {item.title}
                 </Link>
@@ -224,7 +226,7 @@ export default function Navbar() {
                     <Link
                       key={child.title}
                       href={child.href}
-                      className="block py-2 text-gray-700 hover:text-blue-700 hover:border-b-2 hover:border-blue-700 border-b-2 border-transparent"
+                      className="block py-2 text-[#17161a] text-base hover:text-blue-700 hover:border-b-2 hover:border-blue-700 border-b-2 border-transparent"
                     >
                       {child.title}
                     </Link>
@@ -236,15 +238,19 @@ export default function Navbar() {
 
           {/* Mobile Login Button */}
           <div className="p-4 border-t border-gray-100">
-            <Link
-              href="/login"
+            <button
+              onClick={() => setShowLoginModal(true)}
               className="block w-full text-center uppercase text-sm px-4 py-2 border border-blue-700 text-blue-700 rounded hover:bg-blue-700 hover:text-white transition"
             >
               Login
-            </Link>
+            </button>
           </div>
         </div>
       )}
+      <SignInModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+      />
     </nav>
   );
 }

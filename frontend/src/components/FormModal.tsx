@@ -34,14 +34,18 @@ export default function CustomFormModal() {
           <h2 className="text-lg sm:text-xl font-semibold text-left text-gray-500">
             Student Counseling
           </h2>
-          <hr className="my-4 border-gray-300" />
-          <div className="flex justify-center my-4">
-            <Logo />
+          <hr className="mb-10 mt-6 border-gray-300" />
+          <div className="flex justify-center mb-6">
+            <img
+              src="/images/kompass-form-logo.jpg"
+              alt="Company Logo"
+              className="w-72 h-28 sm:w-80 sm:h-32 object-contain"
+            />
           </div>
         </div>
 
         {/* Form */}
-        <form className="space-y-4 text-sm text-gray-500">
+        <form className="space-y-10 text-sm text-gray-500">
           {/* Full Name */}
           <div>
             <label className="block font-semibold mb-1">Full Name</label>
@@ -49,14 +53,16 @@ export default function CustomFormModal() {
               <input
                 type="text"
                 placeholder="First Name"
-                className="w-1/2 border border-gray-300 rounded-md p-2"
+                className="w-1/2 border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Last Name"
-                className="w-1/2 border border-gray-300 rounded-md p-2"
+                className="w-1/2 border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
               />
             </div>
           </div>
@@ -67,7 +73,8 @@ export default function CustomFormModal() {
             <input
               type="number"
               placeholder="e.g., 23"
-              className="w-full border border-gray-300 rounded-md p-2"
+              className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
               value={age}
               onChange={(e) => setAge(e.target.value)}
             />
@@ -79,7 +86,8 @@ export default function CustomFormModal() {
             <input
               type="email"
               placeholder="example@example.com"
-              className="w-full border border-gray-300 rounded-md p-2"
+              className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
             />
           </div>
 
@@ -92,16 +100,20 @@ export default function CustomFormModal() {
                 <input
                   type="tel"
                   placeholder="03XX-XXXXXXX"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
 
               {/* Visa Status */}
               <div>
                 <label className="block font-semibold mb-1">
-                  Do you currently hold a US visa?
+                  Do you currently hold a US visa in any category?
                 </label>
-                <select className="w-full border border-gray-300 rounded-md p-2">
+                <select
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                >
                   <option>Please Select</option>
                   <option>Yes</option>
                   <option>No</option>
@@ -111,91 +123,114 @@ export default function CustomFormModal() {
 
               {/* Occupation */}
               <div>
-                <label className="block font-semibold mb-1">Occupation</label>
+                <label className="block font-semibold mb-1">
+                  What do you currently do? (Occupation)
+                </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
 
               {/* SSC & HSC GPA */}
-              <div className="flex gap-4">
-                <div className="w-1/2">
-                  <label className="block font-semibold mb-1">SSC GPA</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
-                <div className="w-1/2">
-                  <label className="block font-semibold mb-1">HSC GPA</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
+
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  SSC/O'Level GPA
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  HSC/A' Level GPA
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
               </div>
 
               {/* Bachelor's Details */}
               <div>
                 <label className="block font-semibold mb-1">
-                  Bachelor’s University
+                  Which university did you attend for your bachelor's degree?
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
-              <div className="flex gap-4">
-                <div className="w-2/3">
-                  <label className="block font-semibold mb-1">Major</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
-                <div className="w-1/3">
-                  <label className="block font-semibold mb-1">CGPA</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
+
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  Bachelor's Major?
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  Bachelor's CGPA?
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
               </div>
 
               {/* Master's Details */}
               <div>
                 <label className="block font-semibold mb-1">
-                  Master’s University
+                  Which university did you attend for your Master's degree?
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
-              <div className="flex gap-4">
-                <div className="w-2/3">
-                  <label className="block font-semibold mb-1">Major</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
-                <div className="w-1/3">
-                  <label className="block font-semibold mb-1">CGPA</label>
-                  <input
-                    type="text"
-                    className="w-full border border-gray-300 rounded-md p-2"
-                  />
-                </div>
+
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  Master's Major?
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-semibold mb-1">
+                  Master's CGPA?
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                />
               </div>
 
               {/* English Proficiency */}
               <div>
                 <label className="block font-semibold mb-1">
-                  English Proficiency
+                  English Proficiency?
                 </label>
-                <select className="w-full border border-gray-300 rounded-md p-2">
+                <select
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
+                >
                   <option>Please Select</option>
                   <option>IELTS</option>
                   <option>TOEFL</option>
@@ -210,11 +245,12 @@ export default function CustomFormModal() {
               {/* Score */}
               <div>
                 <label className="block font-semibold mb-1">
-                  English Score
+                  What's your english proficiency score?
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
 
@@ -225,38 +261,81 @@ export default function CustomFormModal() {
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
 
               {/* Budget */}
               <div>
                 <label className="block font-semibold mb-1">
-                  Annual Budget
+                  What is your annual budget to study abroad?
                 </label>
                 <input
                   type="text"
                   placeholder="$15,000 USD"
-                  className="w-full border border-gray-300 rounded-md p-2"
+                  className="w-full border border-gray-300 rounded-md p-2 
+             focus:outline-none focus:border-cyan-600 text-gray-700"
                 />
               </div>
 
               {/* Referral */}
               <div>
-                <label className="block font-semibold mb-1">
+                <label className="block font-semibold mb-2">
                   How did you hear about us?
                 </label>
-                <select className="w-full border border-gray-300 rounded-md p-2">
-                  <option>Please Select</option>
-                  <option>Friend</option>
-                  <option>Relative</option>
-                  <option>Facebook Group</option>
-                  <option>Google Map</option>
-                  <option>Facebook Advertisement</option>
-                  <option>Tamzidul Islam</option>
-                  <option>Youtube</option>
-                  <option>Others</option>
-                </select>
+                <div className="space-y-2">
+                  {[
+                    "Friend",
+                    "Relative",
+                    "Facebook Group",
+                    "Google Map",
+                    "Facebook Advertisement",
+                    "Tamzidul Islam",
+                    "Youtube",
+                    "Others",
+                  ].map((option) => (
+                    <label key={option} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="referral"
+                        value={option}
+                        className="accent-blue-500"
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Upload CV */}
+              <div>
+                <label className="block font-semibold mb-2">
+                  Upload Your CV Here (Optional)
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-md p-6 flex flex-col items-center text-center text-sm text-gray-500 bg-gray-50 hover:bg-gray-100 transition">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-gray-400 mb-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v9m0 0l-3-3m3 3l3-3m0-6a4 4 0 10-8 0 4 4 0 008 0z"
+                    />
+                  </svg>
+                  <span className="font-semibold">Browse Files</span>
+                  <span className="text-xs text-gray-400">Choose a file</span>
+                  <input
+                    type="file"
+                    name="cv"
+                    className="absolute opacity-0 inset-0 cursor-pointer"
+                  />
+                </div>
               </div>
             </>
           )}
@@ -276,7 +355,7 @@ export default function CustomFormModal() {
         <div className="flex justify-end">
           <button
             onClick={handleClose}
-            className="text-sm px-3 py-1.5 border border-gray-400 rounded-md hover:bg-gray-100"
+            className="text-sm px-3 py-1.5 bg-orange-400 border border-gray-400 rounded-md hover:bg-gray-100"
           >
             Close
           </button>
