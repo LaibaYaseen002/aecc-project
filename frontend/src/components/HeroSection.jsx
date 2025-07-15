@@ -2,38 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
-const slides = [
-  {
-    image: "/images/carousel-1.jpg",
-    heading: "Educational Consultancy",
-    subheading: "We Provide Solution On Your Higher Education",
-  },
-  {
-    image: "/images/carousel-2.jpg",
-    heading: "Educational Consultancy",
-    subheading: "Take Our Help To Reach The Top Level",
-  },
-];
+import { fetchHeroSlides } from "../lib/hero";
 
 export default function HeroSection() {
+  const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
-  };
+  useEffect(() => {
+    async function loadSlides() {
+      const slides = await fetchHeroSlides();
+      setSlides(slides);
+    }
+
+    loadSlides();
+  }, []);
 
   const nextSlide = () => {
-    setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 30000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
 
   return (
     <section className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden mt-8">
@@ -49,8 +39,6 @@ export default function HeroSection() {
             alt={`Slide ${index}`}
             className="w-full h-full object-cover"
           />
-
-          {/* Full transparent overlay */}
           <div className="absolute inset-0 bg-blue-950/50 flex justify-center items-center px-4">
             <div className="text-center max-w-xl">
               <h1 className="text-2xl md:text-4xl font-bold text-white mb-8 tracking-wide font-sans">
@@ -64,7 +52,6 @@ export default function HeroSection() {
         </div>
       ))}
 
-      {/* Left arrow */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl md:text-4xl bg-black/50 hover:bg-black/70 p-2 rounded-full"
@@ -72,7 +59,6 @@ export default function HeroSection() {
         <FaArrowLeft />
       </button>
 
-      {/* Right arrow */}
       <button
         onClick={nextSlide}
         className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl md:text-4xl bg-black/50 hover:bg-black/70 p-2 rounded-full"

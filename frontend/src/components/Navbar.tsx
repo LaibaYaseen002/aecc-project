@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";
 import Logo from "./Logo";
@@ -12,76 +9,28 @@ type MenuItem = {
   children?: MenuItem[];
 };
 
-const menuItems: MenuItem[] = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Our Services",
-    href: "/#",
-    children: [
-      { title: "Our Services", href: "https://kompass.cc/service" },
-      { title: "Admission Processing", href: "#" },
-      { title: "Visa Processing", href: "#" },
-      { title: "Evaluation with Spantran", href: "#" },
-      { title: "International Education Evaluation (IEE)", href: "#" },
-      { title: "Educational Credential Evaluators(ECE)", href: "#" },
-      { title: "World Education Service (WEC)", href: "#" },
-    ],
-  },
-  {
-    title: "Countries",
-    href: "#",
-    children: [
-      { title: "USA", href: "/#" },
-      { title: "Canada", href: "#" },
-      { title: "Australia", href: "#" },
-      { title: "UK", href: "#" },
-    ],
-  },
-  {
-    title: "FAQ",
-    href: "#",
-    children: [
-      { title: "USA", href: "/#" },
-      { title: "Canada", href: "#" },
-      { title: "Australia", href: "#" },
-      { title: "UK", href: "#" },
-    ],
-  },
-  {
-    title: "Contact",
-    href: "#",
-    children: [
-      { title: "Contact Us", href: "/#" },
-      { title: "Feedback", href: "#" },
-      { title: "Initial Assesment", href: "#" },
-      { title: "Student initial Inquiry", href: "#" },
-    ],
-  },
-  {
-    title: "About",
-    href: "#",
-    children: [
-      { title: "About us", href: "/#" },
-      { title: "Gallery", href: "#" },
-      { title: "Team Member", href: "#" },
-    ],
-  },
-];
+type NavbarProps = {
+  menuItems: MenuItem[];
+  mobileOpen: boolean;
+  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  openDropdown: string | null;
+  setOpenDropdown: React.Dispatch<React.SetStateAction<string | null>>;
+  showLoginModal: boolean;
+  setShowLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
+export default function Navbar({
+  menuItems,
+  mobileOpen,
+  setMobileOpen,
+  openDropdown,
+  setOpenDropdown,
+  showLoginModal,
+  setShowLoginModal,
+}: NavbarProps) {
   const toggleDropdown = (title: string) => {
-    if (openDropdown === title) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(title);
-    }
+    if (openDropdown === title) setOpenDropdown(null);
+    else setOpenDropdown(title);
   };
 
   return (
@@ -96,7 +45,7 @@ export default function Navbar() {
               <div key={item.title} className="relative group">
                 <Link
                   href={item.href}
-                  className="uppercase text-[14px] tracking-wider font-semibold  hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 py-5 inline-flex items-center"
+                  className="uppercase text-[14px] tracking-wider font-semibold hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 py-5 inline-flex items-center"
                 >
                   {item.title}
                   {item.children && (
@@ -108,7 +57,7 @@ export default function Navbar() {
                 {item.children && (
                   <div
                     className="
-                      absolute left-0  mt-0
+                      absolute left-0 mt-0
                       bg-white
                       rounded-lg border border-gray-200
                       shadow-xl
@@ -157,7 +106,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center space-x-3">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-gray-700 hover:text-blue-700 focus:outline-none "
+              className="text-gray-700 hover:text-blue-700 focus:outline-none"
             >
               {!mobileOpen ? (
                 <svg
