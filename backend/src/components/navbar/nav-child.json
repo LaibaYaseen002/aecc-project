@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_navbar_nav_children",
+  "info": {
+    "displayName": "NavChild"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
