@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { fetchHeroSlides } from "../lib/hero";
+import { fetchHeroSlides, HeroSlide } from "../lib/hero";
 
 export default function HeroSection() {
   const [slides, setSlides] = useState([]);
@@ -34,19 +34,27 @@ export default function HeroSection() {
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
-            src={slide.image}
-            alt={`Slide ${index}`}
-            className="w-full h-full object-cover"
-          />
+          {slide.image && (
+            <img
+              src={slide.image}
+              alt={slide.heading}
+              className="w-full h-full object-cover"
+            />
+          )}
+
           <div className="absolute inset-0 bg-blue-950/50 flex justify-center items-center px-4">
             <div className="text-center max-w-xl">
-              <h1 className="text-2xl md:text-4xl font-bold text-white mb-8 tracking-wide font-sans">
-                {slide.heading}
-              </h1>
-              <h3 className="text-base sm:text-lg md:text-3xl font-semibold text-white leading-snug mb-6 max-w-3xl mx-auto">
-                {slide.subheading}
-              </h3>
+              {slide.heading && (
+                <h1 className="text-2xl md:text-4xl font-bold text-white mb-8 tracking-wide font-sans">
+                  {slide.heading}
+                </h1>
+              )}
+
+              {slide.subheading && (
+                <h3 className="text-base sm:text-lg md:text-3xl font-semibold text-white leading-snug mb-6 max-w-3xl mx-auto">
+                  {slide.subheading}
+                </h3>
+              )}
             </div>
           </div>
         </div>

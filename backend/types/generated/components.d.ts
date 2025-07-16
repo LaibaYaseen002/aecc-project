@@ -11,10 +11,25 @@ export interface NavbarNavChild extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsWhyChooseFeature extends Struct.ComponentSchema {
+  collectionName: 'components_sections_why_choose_features';
+  info: {
+    displayName: 'Why-Choose-Feature';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.Enumeration<
+      ['userTie', 'percent', 'award', 'smile', 'user', 'headset']
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'navbar.nav-child': NavbarNavChild;
+      'sections.why-choose-feature': SectionsWhyChooseFeature;
     }
   }
 }

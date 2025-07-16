@@ -410,24 +410,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBookBook extends Struct.CollectionTypeSchema {
-  collectionName: 'books';
+export interface ApiConsultationConsultation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'consultations';
   info: {
-    displayName: 'Book';
-    pluralName: 'books';
-    singularName: 'book';
+    displayName: 'Consultation';
+    pluralName: 'consultations';
+    singularName: 'consultation';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    countryCode: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    fullName: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::book.book'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::consultation.consultation'
+    > &
       Schema.Attribute.Private;
+    mobileNumber: Schema.Attribute.String;
+    nearestOffice: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    studyDestination: Schema.Attribute.String;
+    studyIntake: Schema.Attribute.String;
+    studyYear: Schema.Attribute.BigInteger;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -449,17 +461,13 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Heading: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::hero-section.hero-section'
     > &
       Schema.Attribute.Private;
-    Order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     Subheading: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -468,24 +476,34 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
-  collectionName: 'menu_items';
+export interface ApiIntroSectionIntroSection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'intro_sections';
   info: {
-    displayName: 'menu-item';
-    pluralName: 'menu-items';
-    singularName: 'menu-item';
+    displayName: 'IntroSection';
+    pluralName: 'intro-sections';
+    singularName: 'intro-section';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
+    counselingText: Schema.Attribute.String;
+    counselingTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description1: Schema.Attribute.Blocks;
+    description2: Schema.Attribute.Blocks;
+    documentText: Schema.Attribute.String;
+    documentTitle: Schema.Attribute.String;
+    englishTestText: Schema.Attribute.String;
+    englishTestTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::menu-item.menu-item'
+      'api::intro-section.intro-section'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -516,6 +534,67 @@ export interface ApiNavbarItemNavbarItem extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::navbar-item.navbar-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServiceService extends Struct.CollectionTypeSchema {
+  collectionName: 'services';
+  info: {
+    displayName: 'Service';
+    pluralName: 'services';
+    singularName: 'service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    button: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service.service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWhyChooseWhyChoose extends Struct.CollectionTypeSchema {
+  collectionName: 'why_chooses';
+  info: {
+    displayName: 'WhyChoose';
+    pluralName: 'why-chooses';
+    singularName: 'why-choose';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    features: Schema.Attribute.Component<'sections.why-choose-feature', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::why-choose.why-choose'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1036,10 +1115,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::book.book': ApiBookBook;
+      'api::consultation.consultation': ApiConsultationConsultation;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
-      'api::menu-item.menu-item': ApiMenuItemMenuItem;
+      'api::intro-section.intro-section': ApiIntroSectionIntroSection;
       'api::navbar-item.navbar-item': ApiNavbarItemNavbarItem;
+      'api::service.service': ApiServiceService;
+      'api::why-choose.why-choose': ApiWhyChooseWhyChoose;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

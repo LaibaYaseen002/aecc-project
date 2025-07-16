@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_why_choose_features",
+  "info": {
+    "displayName": "Why-Choose-Feature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "userTie",
+        "percent",
+        "award",
+        "smile",
+        "user",
+        "headset"
+      ]
+    }
+  },
+  "config": {}
+}
