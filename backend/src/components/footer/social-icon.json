@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_footer_social_icons",
+  "info": {
+    "displayName": "social_icon"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "linkedin",
+        "whatsapp"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

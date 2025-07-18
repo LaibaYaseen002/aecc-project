@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultation_requests",
+  "info": {
+    "singularName": "consultation-request",
+    "pluralName": "consultation-requests",
+    "displayName": "Consultation Request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "countrycode": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::code.code"
+    },
+    "mobileNumber": {
+      "type": "biginteger"
+    },
+    "office": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::office.office"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::destination.destination"
+    },
+    "study_year": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::study-year.study-year"
+    },
+    "study_intake": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::study-intake.study-intake"
+    }
+  }
+}

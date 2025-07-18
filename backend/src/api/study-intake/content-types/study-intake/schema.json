@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "study_intakes",
+  "info": {
+    "singularName": "study-intake",
+    "pluralName": "study-intakes",
+    "displayName": "study-intake"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

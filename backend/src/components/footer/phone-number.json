@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_footer_phone_numbers",
+  "info": {
+    "displayName": "phone_number"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

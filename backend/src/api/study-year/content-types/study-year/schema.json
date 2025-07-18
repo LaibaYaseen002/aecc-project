@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "study_years",
+  "info": {
+    "singularName": "study-year",
+    "pluralName": "study-years",
+    "displayName": "study-year"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "year": {
+      "type": "biginteger"
+    }
+  }
+}

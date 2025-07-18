@@ -1,11 +1,21 @@
 module.exports = [
   "strapi::errors",
-  "strapi::security",
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "img-src": ["'self'", "data:", "blob:", "http://localhost:1337"],
+        },
+      },
+    },
+  },
   {
     name: "strapi::cors",
     config: {
       enabled: true,
-      origin: ["http://localhost:3000"], // or replace * with your frontend URL
+      origin: ["http://localhost:3000"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
     },
   },
